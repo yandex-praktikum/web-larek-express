@@ -19,11 +19,13 @@ services:
       - internal
 
   backend:
+    restart: always
     build:
       context: backend
     env_file:
       - backend/.env
     volumes:
+      - ./backend/src:/app/src
       - public:/app/src/public
     ports:
       - 3000:3000
